@@ -291,3 +291,304 @@
 #
 
 
+# Q22) ps
+#
+# Description:
+#    It displays information about the current processes.
+#
+# Command:
+#    ps
+#
+# Output:
+#    PID TTY          TIME CMD
+#    17952 pts/31   00:00:00 bash
+#    18259 pts/31   00:00:00 ps
+#
+# Q23) chmod 777 file1
+#
+# Description:
+#    gives full permission to owner, group and others
+#
+# Command:
+#    chmod 777 intro.txt
+#
+# Output:
+#    No output as it gives only permisssion.
+#
+
+
+# Q24) grep
+#
+# Description:
+#    It finds specific patterns in files.
+# Command:
+#    grep "i" intro.txt
+#
+# Output:
+#    Hello my name is Trisanjit Das.
+#    I am currently a pre-final year undergrad at the Dept. of I.T., J.U.
+#    (It gives all the i in red-colour and is case-sensitive)
+#
+
+
+# Q25) touch
+#
+# Description:
+#    It creates an empty file or updates the timestamp of an existing file.
+# Command:
+#    touch new.txt
+#
+# Output:
+#    ls
+#    new.txt
+#
+
+
+# Q26) more/less
+#
+# Description:
+#    It displays file content one screen at a time, allowing you to scroll.
+# Command:
+#    more os_poem.txt
+#
+# Output:
+#    Ode to the Operating System
+#    
+#    Beneath the screens and glowing light,
+#    An unseen force works day and night.
+#    It wakes the silence, stirs the core,
+#    The OS, we all adore.
+#    
+#    It bridges gaps 'twixt man and machine,
+#    In every task, both seen and unseen.
+#    Managing memory, CPU dance,
+#    Giving every process a chance.
+#    
+#    With threads and queues, it weaves the flow,
+#    So apps and hardware smoothly go.
+#    It guards our data, keeps it tight,
+#    A silent sentinel in the night.
+#    
+#    Though oft unnoticed, it’s the heart,
+#    The vital pulse, the system’s art.
+#    Oh OS, you make it true—
+#    The dreams we build start all with you.
+#
+# Command:
+#    less os_poem.txt
+#
+# Output:
+#    Ode to the Operating System
+#    
+#    Beneath the screens and glowing light,
+#    An unseen force works day and night.
+#    It wakes the silence, stirs the core,
+#    The OS, we all adore.
+#    
+#    It bridges gaps 'twixt man and machine,
+#    In every task, both seen and unseen.
+#    Managing memory, CPU dance,
+#    Giving every process a chance.
+#    
+#    With threads and queues, it weaves the flow,
+#    So apps and hardware smoothly go.
+#    It guards our data, keeps it tight,
+#    A silent sentinel in the night.
+#    
+#    Though oft unnoticed, it’s the heart,
+#    The vital pulse, the system’s art.
+#    Oh OS, you make it true—
+#    The dreams we build start all with you.
+#    os_poem.txt (END)
+#
+
+
+# Q27) head/tail
+#
+# Description:
+#    It displays First/Last 10 lines of a File.
+# Command:
+#    head os_poem.txt
+#
+# Output:
+#    Ode to the Operating System
+#    
+#    Beneath the screens and glowing light,
+#    An unseen force works day and night.
+#    It wakes the silence, stirs the core,
+#    The OS, we all adore.
+#    
+#    It bridges gaps 'twixt man and machine,
+#    In every task, both seen and unseen.
+#    Managing memory, CPU dance,
+#
+# Command:
+#    tail os_poem.txt
+#
+# Output:
+#    With threads and queues, it weaves the flow,
+#    So apps and hardware smoothly go.
+#    It guards our data, keeps it tight,
+#    A silent sentinel in the night.
+#    
+#    Though oft unnoticed, it’s the heart,
+#    The vital pulse, the system’s art.
+#    Oh OS, you make it true—
+#    The dreams we build start all with you.
+#
+
+
+# Q28) top
+#
+# Description:
+#    It dynamically displays real-time information about system statistics.
+# Command:
+#    top
+#
+# Output:
+#    top - 13:48:50 up 275 days,  2:02, 29 users,  load average: 0.00, 0.01, 0.05
+#    Tasks: 418 total,   1 running, 412 sleeping,   2 stopped,   0 zombie
+#    %Cpu(s):  0.0 us,  0.0 sy,  0.0 ni, 99.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+#    KiB Mem : 65549308 total, 53845912 free,  2407840 used,  9295556 buff/cache
+#    KiB Swap: 32899068 total, 32899068 free,        0 used. 61595284 avail Mem
+#    
+#      PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+#    19720 be2389    20   0  157988   2548   1556 R   0.7  0.0   0:00.18 top
+#      561 root      20   0       0      0      0 S   0.3  0.0  42:58.96 xfsaild/dm-0
+#     8205 root      20   0       0      0      0 S   0.3  0.0   0:49.35 kworker/4:0
+#    16103 be2354    20   0  147984   2452   1116 S   0.3  0.0   0:00.41 sshd
+#    19741 be2354    20   0  151796   5928   2792 S   0.3  0.0   0:00.07 vim
+#        1 root      20   0  194444   7592   3988 S   0.0  0.0  29:22.26 systemd
+#        2 root      20   0       0      0      0 S   0.0  0.0   0:25.61 kthreadd
+#        3 root      20   0       0      0      0 S   0.0  0.0 360:10.19 ksoftirqd/0
+#        8 root      rt   0       0      0      0 S   0.0  0.0   0:04.45 migration/0
+#        9 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh
+#       10 root      20   0       0      0      0 S   0.0  0.0 327:45.38 rcu_sched
+#       11 root      rt   0       0      0      0 S   0.0  0.0   1:07.02 watchdog/0
+#       12 root      rt   0       0      0      0 S   0.0  0.0   1:05.97 watchdog/1
+#       13 root      rt   0       0      0      0 S   0.0  0.0   0:13.35 migration/1
+#       14 root      20   0       0      0      0 S   0.0  0.0 260:50.17 ksoftirqd/1
+#       16 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/1:0H
+#       17 root      rt   0       0      0      0 S   0.0  0.0   1:00.27 watchdog/2
+#       18 root      rt   0       0      0      0 S   0.0  0.0   0:08.14 migration/2
+#       19 root      20   0       0      0      0 S   0.0  0.0 200:43.36 ksoftirqd/2
+#       21 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/2:0H
+#       22 root      rt   0       0      0      0 S   0.0  0.0   0:59.24 watchdog/3
+#       23 root      rt   0       0      0      0 S   0.0  0.0   0:06.01 migration/3
+#       24 root      20   0       0      0      0 S   0.0  0.0 167:21.16 ksoftirqd/3
+#    [3]+  Stopped                 top
+#
+
+
+# Q29) kill
+#
+# Description:
+#    It terminates a Process.
+# Command:
+#    kill 19940
+#
+# Output:
+#    No output, it only killed the process.
+#
+
+
+# Q30) history
+#
+# Description:
+#    It displays a list of previously executed commands.
+# Command:
+#    history
+#
+# Output:
+#    38  ssh-keygen -t ed2389
+#    39  ssh-keygen -t ed25519
+#    40  clear
+#    41  cat ~/ .ssh/id_ed25519.pub
+#    42  cat ~/ .ssh/id_rsa.pub
+#    43  cat ~/ .ssh/software.pub
+#    44  cat ~/ .ssh/id_ed25519/software.pub
+#    45  cat ~/ .ssh/software.pub
+#    46  cd ..
+#    47  ls
+#    48  type id_ed25519
+#    49  ssh-keygen -t ed25519
+#    50  cd ..
+#    51  ls
+#    52  clear
+#    53  ssh-keygen -t ed25519
+#    54  cat ~/.ssh/id_ed25519.pub
+#    .....................
+#    998  ls
+#    999  gcc gbn_receiver.c
+#   1000  ./a.out
+#   1001  ps
+#   1002  chmod 777 file1
+#   1003  cd ..
+#   1004  ls
+#   1005  cd be2391
+#   1006  cd be2389
+#   1007  ls
+#   1008  clear
+#   1009  chmod 777 file1
+#   1010  ls
+#   1011  nano intro.txt
+#   1012  chmod 777 intro
+#   1013  ls
+#   1014  chmod 777 intro.txt
+#   1015  grep
+#   1016  grep "i" intro.txt
+#   1017  mkdir OS
+#   1018  cd OS
+#   1019  touch new.txt
+#   1020  ls
+#   1021  more
+#   1022  more -d
+#   1023  nano os_poem.txt
+#   1024  more os_poem.txt
+#   1025  less os_poem.txt
+#   1026  more os_poem.txt
+#   1027  clear
+#   1028  less os_poem.txt
+#   1029  clear
+#   1030  head os_poem.txt
+#   1031  tail os_poem.txt
+#   1032  top
+#   1033  kill
+#   1034  top
+#   1035  kill 19294
+#   1036  kill 19940
+#   1037  history
+#
+
+
+# Q31) du
+#
+# Description:
+#    It estimates file space usage (of a file or directory).
+# Command:
+#    du
+#
+# Output:
+#    4
+#
+
+
+# Q32) ping
+#
+# Description:
+#    It tests network connectivity to a host.
+# Command:
+#    ping 172.16.4.112
+#
+# Output:
+#    PING 172.16.4.112 (172.16.4.112) 56(84) bytes of data.
+#    64 bytes from 172.16.4.112: icmp_seq=1 ttl=64 time=0.082 ms
+#    64 bytes from 172.16.4.112: icmp_seq=2 ttl=64 time=0.038 ms
+#    64 bytes from 172.16.4.112: icmp_seq=3 ttl=64 time=0.038 ms
+#    64 bytes from 172.16.4.112: icmp_seq=4 ttl=64 time=0.036 ms
+#    64 bytes from 172.16.4.112: icmp_seq=5 ttl=64 time=0.036 ms
+#    64 bytes from 172.16.4.112: icmp_seq=6 ttl=64 time=0.035 ms
+#    64 bytes from 172.16.4.112: icmp_seq=7 ttl=64 time=0.764 ms
+#    ^Z
+#    [7]+  Stopped                 ping 172.16.4.112
+#
