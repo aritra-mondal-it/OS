@@ -1,13 +1,14 @@
 #!/bin/bash
 
 #######################################################################
-# Name     : Ansh Kumar Singh
+# ASSIGNMENT 1 -> QUESTION A
+
+# Name     : Ansh Kumar Singh, Trisanjit Das, Aritra Mondal
 # Section  : A2
-# Roll No  : 002311001073
-# Team No  : 4
+# Roll No  : 002311001073, 002311001089, 002311001091
+# Team No  : 04
 # Date     : 23/07/2025
 #
-# Assignment 1A: (6 Marks) [CO1]
 # Objective: Familiarity with User and System level OS Commands
 # Task     : Run the commands and validate the output
 #######################################################################
@@ -181,7 +182,7 @@
 #     tmpfs                          6554932         0    6554932   0% /run/user/3264
 
 
-# 10) rmdir
+# Q10) rmdir
 # 
 # Description: 
 #    Directories can be deleted using the rmdir command - $rmdir dirname
@@ -195,7 +196,7 @@
 #
 
 
-# 11) cat
+# Q11) cat
 # 
 # Description: 
 #    It displays the contents of a file - $cat filename
@@ -229,7 +230,7 @@
 #     [be2373@localhost ~]$
 
 
-# 12) cp
+# Q12) cp
 # 
 # Description: 
 #    It is used to copy a file - $ cp source_file destination_file
@@ -243,7 +244,7 @@
 #
 
 
-# 13) mv
+# Q13) mv
 # 
 # Description: 
 #    It is used to change the name of a file - $ mv old_file new_file
@@ -257,7 +258,7 @@
 #
 
 
-# 14) rm
+# Q14) rm
 # 
 # Description: 
 #    It is used to delete an existing file - $ rm filename
@@ -270,7 +271,7 @@
 #
 
 
-# 15) stat
+# Q15) stat
 # 
 # Description: 
 #    It is used to delete an existing file - $ rm filename
@@ -291,6 +292,99 @@
 #
 
 
+# Q16) ln
+# 
+# Description: 
+#    It is used to create links between files and directories.
+#
+# Command: (Hard Link)
+#    ln as3p3.c arrayReversal.txt
+#    ls
+# 
+# Output:
+#    a4q2  a.out  arrayReversal.txt  as3p3.c  CN  cpnm  cpnm73  DSA  OOPS  oopsEvaluation  OOS  OOSEvaluation  SE  skel
+#
+# Command: (Symbolic Link)
+#    ln -s as3p3.c arrs.txt
+#    ls
+# 
+# Output:
+#    a4q2   arrayReversal.txt  as3p3.c  cpnm    DSA   oopsEvaluation  OOSEvaluation  skel
+#    a.out  arrs.txt           CN       cpnm73  OOPS  OOS             SE
+#
+
+
+# Q17) tty
+# 
+# Description: 
+#    It prints the filename of the terminal connected to standard input.
+#
+# Command:
+#    tty
+# 
+# Output:
+#    /dev/pts/9
+#
+
+
+# Q18) uname
+# 
+# Description: 
+#    It prints system information
+#
+# Command:
+#    uname
+# 
+# Output:
+#    Linux
+#
+
+
+# Q19) umask
+# 
+# Description: 
+#    It specifies user file creation mask, implying which of the 3 permissions are to be denied to the owner,group and others.
+#
+# Command:
+#    umask
+# 
+# Output:
+#    0022
+#
+
+
+# Q20) find
+# 
+# Description:
+#    It searches for files in a directory hierarchy
+#
+# Command:
+#    find . -name tcpserver.c
+# 
+# Output:
+#    ./CN/tcpserver.c
+#
+
+
+# Q21) sort
+# 
+# Description:
+#    It sorts the lines of text files
+#
+# Command:
+#    sort newText.txt
+# 
+# Output:
+#    Have a great day!
+#    - Item 1: Remember to stay hydrated.
+#    - Item 2: Take regular breaks while working.
+#    - Item 3: Keep your code clean and documented.
+#    This file contains a few lines of generic content.
+#    Welcome to your new text file!
+#    You can add notes, ideas, tasks, or anything else here.
+#
+
+
 # Q22) ps
 #
 # Description:
@@ -304,6 +398,8 @@
 #    17952 pts/31   00:00:00 bash
 #    18259 pts/31   00:00:00 ps
 #
+
+
 # Q23) chmod 777 file1
 #
 # Description:
@@ -591,4 +687,46 @@
 #    64 bytes from 172.16.4.112: icmp_seq=7 ttl=64 time=0.764 ms
 #    ^Z
 #    [7]+  Stopped                 ping 172.16.4.112
+#
+
+
+# Q33) wc
+# 
+# Description:
+#    It counts lines, words, and characters in a file.
+#
+# Command:
+#    wc newText.txt
+# 
+# Output:
+#    11  53 289 newText.txt
+#
+
+
+# Q34) >/>>
+# 
+# Description:
+#    It redirects the standard output of a command to a file, overwriting the file if it exists. 
+#
+# Command:
+#    ll > txtfile2.txt
+#    cat txtfile2.txt
+# 
+# Output:
+#    total 4
+#    -rw-r--r--. 1 be2373 ugyr23 289 Jul 23 13:41 newText.txt
+#    -rw-r--r--. 1 be2373 ugyr23   0 Jul 23 13:58 txtfile2.txt
+#
+
+
+# Q35) |
+# 
+# Description:
+#    It takes the standard output of one command and uses it as the standard input for another command.
+#
+# Command:
+#     ll -l | wc -l
+# 
+# Output:
+#    3
 #
