@@ -1,58 +1,73 @@
-/*
- * NAME - SUMIT DE
- * ROLL NO - 002211001109
- * SECTION - A2
+/**********************************************************************************************************************************************************************
+ * NAME         : Ansh Kumar Singh, Trisanjit Das, Aritra Mondal
+ * ROLL NO      : 002311001073, 002311001089, 002311001091
+ * SEC          : A2
+ * TEAM NO      : 04
+ * ASSIGNMENT   : 5
+ * DATE         : 20/08/2025
+ **********************************************************************************************************************************************************************
+ * ASSIGNMENT DETAILS:
+ * 
+ * Consider a main process which creates three threads Th1, Th2, and Th3. The main
+ * process also creates two random quantities (X, Y), both less than 10. These two
+ * values will be placed by the main process in the shared memory (One variant of IPC
+ * Primitive) that is accessible by all the three threads Th1, Th2 and Th3. The shared
+ * memory will be created by the main process using shmat/shmget calls.
+ * For each pair of values (X,Y), it is required that some computations will be done by
+ * various threads. The thread Th1 will compute A (X*Y) and the thread Th2 will
+ * compute B (X*Y)/2). Similarly, Th3 computes C (X+Y), Th2 again computes D
+ * ((X*Y)/(X+Y)), and finally Th1 computes E ((X+Y)(X-Y)). All these values are kept in
+ * the shared memory in a tabular fashion as shown below.
+ * The number of (X,Y) pairs will be taken as an argument from the CLI. It is the
+ * responsibility of the main process to populate required numbers of (X,Y)s in the
+ * shared memory. The program will only exit when all A,B,C etc. are computed for all
+ * given (X,Y) values. Before exiting, all (X,Y)s, As, Bs etc. should be displayed.
+ * Whenever, the threads complete one phase of computations (A, B, C, D and E), they
+ * will go for another pair of (X,Y) values; but they will start all together. This can be
+ * achieved by proper synchronization.
+ * Use the proper shell command(ipcs) to display the Shared Memory
+ * Status/Info/Statistics and attach this sample output as a comment.
+ * 
+ * Example:—
  *
- * ASSIGNMENT - 5
- ***********************************************************************************************************************************************************
- * Thread, Synchronizations & Shared Memory
- ***********************************************************************************************************************************************************
- * ASSIGNMENT DETAILS -
- * Consider a main process which creates three threads Th1, Th2, and Th3. Main generates two random quantities (X, Y) < 10,
- * stores them in shared memory, and threads compute:
- *   Th1: A = X*Y, E = (X+Y)*(X-Y)
- *   Th2: B = (X*Y)/2, D = (X*Y)/(X+Y)
- *   Th3: C = X+Y
- * Shared memory created via shmget/shmat. All values stored per (X,Y) pair.
- * Program exits once all N pairs are processed; prints table at end.
- *
- * Use 'ipcs -m' to inspect shared memory.
- ***********************************************************************************************************************************************************
+ * Input: N, number of random pairs
+ * Output Format:
+ * Pairs(X,Y) | A | B | C | D | E
+ * ——————————————————————————
+ * (1, 2)     | 2 | 1 | 3 | .66 | -3
+ * ——————————————————————————
+ * (4, 1)     | 4 | 2 | 5 | .8  | 15
+ * .........
+ **********************************************************************************************************************************************************************
+ * INPUT DESCRIPTION:
+ *     Command line argument: N — the number of (X, Y) random pairs to be generated.
  * 
- * INPUT DESCRIPTION -
- *   User enters the number of (X,Y) pairs from CLI
- * OUTPUT DESCRIPTION -
- *   Prints computation stages and final table of X, Y, A, B, C, D, E
- ***********************************************************************************************************************************************************
- *
- * SAMPLE OUTPUT (truncated) -
- * Sample Output:
- * -------------------------------
- * Enter the number of pairs to generate:
- * 2
- * Creating threads...
- * Threads created
+ * OUTPUT DESCRIPTION:
+ *     Displays the computed values A, B, C, D, and E for each (X, Y) pair in a formatted table.
  * 
- * Main: Generating (X,Y) = (8.00, 1.00)
- * Thread 1: computing A = X*Y
- * Thread 2: computing B = (X*Y)/2
- * Thread 3: computing C = X+Y
- * Thread 2: computing D = (X*Y)/(X+Y)
- * Thread 1: computing E = (X+Y)*(X-Y)
+ * COMPILATION:
+ *     gcc -o A2_04_5 A2_04_5.c -lpthread -lm
  * 
- * Main: Generating (X,Y) = (2.00, 1.00)
- * Thread 1: computing A = X*Y
- * Thread 2: computing B = (X*Y)/2
- * Thread 3: computing C = X+Y
- * Thread 2: computing D = (X*Y)/(X+Y)
- * Thread 1: computing E = (X+Y)*(X-Y)
+ * EXECUTION:
+ *     ./A2_04_5 <number_of_pairs>
  * 
- *   ( X ,  Y ) :    A     B     C     D     E
+ * SAMPLE OUTPUT:
+ *     Creating threads...
+ *     Threads created
+ *     Main: Generating (X,Y) = (8.00, 1.00)
+ *     Thread 1: computing A = X*Y
+ *     Thread 2: computing B = (X*Y)/2
+ *     Thread 3: computing C = X+Y
+ *     Thread 2: computing D = (X*Y)/(X+Y)
+ *     Thread 1: computing E = (X+Y)*(X-Y)
  * 
- * (8.00, 1.00):   8.00   4.00   9.00   0.89  63.00
- * (2.00, 1.00):   2.00   1.00   3.00   0.67   3.00
- **********************************************************************************************************************************************************
-*/
+ *     ( X ,  Y ) :    A     B     C     D     E
+ *     (8.00, 1.00):   8.00   4.00   9.00   0.89  63.00
+ *     (2.00, 1.00):   2.00   1.00   3.00   0.67   3.00
+ * 
+ * SHARED MEMORY INSPECTION:
+ *     Use the command: ipcs -m
+ **********************************************************************************************************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>
