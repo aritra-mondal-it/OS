@@ -1,64 +1,4 @@
-/**********************************************************************************************************************************************************************
- * Assignment :- 4
- * Name :- Ansh Kumar Singh, Trisanjit Das, Aritra Mondal
- * Roll No. :- 002311001073, 002311001089, 002311001091
- * Sec. :- A2
- * Team No :- 04
- * Date :- 13/08/2025
- **********************************************************************************************************************************************************************
- * mmap and page fault
- **********************************************************************************************************************************************************************
- *
- * ASSIGNMENT DETAILS :
- * 
- * Objective of this programming assignment is to use mmap() call and
- * observe page-fault using the ‘sar’ command.
- * 
- * A big file (about 8GB) should be created using the ‘fallocate’ command.
- * This big file should be written with a single byte value (say X) at a specific
- * offset (say F). Both the values and the offset should be generated using a
- * random function. Please do remember this random function should
- * generate a quantity anywhere between 0 and 8G for the value of F and
- * between 0–255 for the value of X.
- * 
- * The above big file should also be mapped in the virtual address space
- * using mmap() call. Once it is mapped, the data should be read from the
- * same specific offset (F). Now, if the data read is X`; then verify that X and
- * X` are the same. In case of verification failure, an error message is to be
- * printed and also the program should terminate. Note that, the offset value F
- * can be anywhere between 0 and 8G and you should display the offset as
- * hex number format.
- * 
- * This sequence of writing and reading data to/from a specific offset and also
- * verification should be put in a while loop to go forever.
- * 
- * In another terminal execute the command ‘sar –B 1’ to observe for the
- * page fault. This command should be started before the above program is
- * put under execution. So, one can observe that the page faults are
- * increasing, once the above program starts executing.
- * 
- * The output of the program and the ‘sar’ command should be pasted as a
- * comment at the beginning of the program file as indicated by the
- * guidelines.
- * Objective:
- * To use the mmap() system call and monitor page faults using 'sar -B 1'. The program writes a random byte (X) at a random offset (F)
- * in a large file mapped via mmap, then verifies the byte through the mapped memory. This operation is repeated in a loop.
- *
- * Instructions:
- * 1. Run 'sar -B 1' in a separate terminal to observe page fault statistics.
- * 2. The program continuously:
- *    - Chooses random offset F ∈ [0, 8MB)
- *    - Chooses random byte X ∈ [0, 255]
- *    - Writes X at F using write()
- *    - Reads and verifies byte at F using mmap'd memory
- *    - Prints verification result
- *
- * Compilation: gcc A2_04_4.c -o A2_04_4
- * Execution: ./A2_04_4
- * 
- * 
- *
- **********************************************************************************************************************************************************************/
+
 
 
 #include <fcntl.h>
@@ -67,7 +7,63 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
-#include <time.h>
+#include <time.h>/**********************************************************************************************************************************************************************
+ * NAME     : Ansh Kumar Singh, Trisanjit Das, Aritra Mondal
+ * ROLL NO  : 002311001073, 002311001089, 002311001091
+ * SEC      : A2
+ * TEAM NO  : 04
+ * ASSIGN   : 2B
+ * DATE     : 13/08/2025
+ **********************************************************************************************************************************************************************
+ * mmap and verification of random write/read offset using page-backed memory
+ **********************************************************************************************************************************************************************
+ *
+ * ASSIGNMENT DETAILS:
+ *
+ * Objective of this programming assignment is to use mmap() call and
+ * verify memory-mapped read/write integrity at random offsets.
+ *
+ * A big file (about 8GB) should be created using the ‘fallocate’ command.
+ * This big file should be written with a single byte value (say X) at a specific
+ * offset (say F). Both the values and the offset should be generated using a
+ * random function. The random offset F should be anywhere between 0 and
+ * 8GB, and X should be between 0–255.
+ *
+ * The big file is mapped into the virtual address space using mmap().
+ * After mapping, data is read back from the same offset F. If the read value
+ * (X`) differs from X, an error message is printed and the program terminates.
+ * Otherwise, verification success is printed in hex offset format.
+ *
+ * This sequence is repeated in an infinite loop.
+ *
+ * Compilation Command:
+ * gcc A2_04_2B.c -o A2_04_2B
+ *
+ * Execution Command:
+ * ./A2_04_2B
+ *
+ * Sample Output:
+ * --------------
+ * Verification success: X = 91 at offset 0x2c6335
+ * Verification success: X = 11 at offset 0x101c18
+ * Verification success: X = 39 at offset 0x1f8add
+ * Verification success: X = 47 at offset 0x2d86fa
+ * Verification success: X = 8e at offset 0x1f1de3
+ * Verification success: X = ed at offset 0x266148
+ * Verification success: X = 46 at offset 0x15070a
+ * Verification success: X = 06 at offset 0x3b02f2
+ * Verification success: X = d6 at offset 0x518829
+ * Verification success: X = 5f at offset 0xe1e6e
+ * Verification success: X = 25 at offset 0x731503
+ * Verification success: X = 74 at offset 0x3ce809
+ * Verification success: X = d0 at offset 0x6427ef
+ * Verification success: X = bb at offset 0x4721f1
+ * Verification success: X = c7 at offset 0x7b1ca3
+ * Verification success: X = 8f at offset 0x75b658
+ * ^C
+ *
+ **********************************************************************************************************************************************************************/
+
 #include <errno.h>
 #include <string.h>
 
